@@ -1,5 +1,11 @@
 package org.wish.spring.demorestful.model;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+
+import java.util.Objects;
+
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class EnglishWord {
     private final String word;
     private final String sentence;
@@ -34,7 +40,7 @@ public class EnglishWord {
     }
 
     private EnglishWord(Builder builder) {
-        this.word = builder.word;
+        this.word = Objects.requireNonNull(builder.word);
         this.sentence = builder.sentence;
         this.chinese = builder.chinese;
     }
