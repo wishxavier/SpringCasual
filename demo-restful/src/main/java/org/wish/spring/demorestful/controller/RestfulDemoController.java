@@ -1,5 +1,7 @@
 package org.wish.spring.demorestful.controller;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.wish.spring.demorestful.model.EnglishWord;
 import org.wish.spring.demorestful.model.ToeicWord;
@@ -45,5 +47,22 @@ class RestfulDemoController {
             englishWords.add(englishWord);
             return englishWord;
         }
+    }
+
+    @PutMapping
+    ResponseEntity<EnglishWord> upsertEnglishWord(@RequestBody EnglishWord englishWord) {
+        deleteEnglishWord(englishWord.getWord());
+        return new ResponseEntity<>(createEnglishWord(englishWord), HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{word}")
+    ResponseEntity<EnglishWord> deleteEnglishWord(@PathVariable String word) {
+        for (int i = 0; i < englishWords.size(); ++i) {
+            if (englishWords.get(i).getWord().equalsIgnoreCase(word)) {
+                return new ResponseEntity<>(englishWords.remove(i), HttpStatus.NO_CONTENT);
+            }
+        }
+
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
