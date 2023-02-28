@@ -2,11 +2,13 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="demo-restful" />
+        <module name="demo-repository" />
         <module name="demo-empty" />
       </profile>
     </annotationProcessing>
@@ -14,6 +16,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="demo-empty" options="-parameters" />
+      <module name="demo-repository" options="-parameters" />
       <module name="demo-restful" options="-parameters" />
     </option>
   </component>
