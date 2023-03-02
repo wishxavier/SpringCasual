@@ -3,3 +3,13 @@ lego:
   name: 花束
   number: 10280
   pieces: 756
+
+#Unsafe setting. Just for demo actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always

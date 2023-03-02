@@ -7,6 +7,7 @@
         <option value="$PROJECT_DIR$/demo-empty/pom.xml" />
         <option value="$PROJECT_DIR$/demo-restful/pom.xml" />
         <option value="$PROJECT_DIR$/demo-repository/pom.xml" />
+        <option value="$PROJECT_DIR$/demo-configuration/pom.xml" />
       </list>
     </option>
   </component>
